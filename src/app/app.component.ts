@@ -77,7 +77,13 @@ export class AppComponent {
           // console.log(`FOUND "${matchString}" at index ${bookmark}`);
           const pointer = `<${increment.toString(36)},${matchLength.toString(36)}>`;
           // console.log('pointer: ' + pointer);
-          const regExp = new RegExp(matchString, 'g');
+          let regExp = null;
+          try {
+            regExp = new RegExp(matchString, 'g');
+          } catch (error) {
+            console.log('BAD REGEXP', error);
+            continue;
+          }
           const head = text.slice(0, bookmark);
           const tail = text.slice(bookmark, text.length + 1).replace(regExp, pointer);
           // text = text.replace(regExp, pointer);
