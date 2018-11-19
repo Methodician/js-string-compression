@@ -15,7 +15,7 @@
     <div class="control">
       <label>Natural Text <span *ngIf="natural">({{natural.length}} chars)</span></label>
       <br>
-      <textarea name="natural" [(ngModel)]="natural" cols="50" rows="10"></textarea>
+      <textarea name="natural" [(ngModel)]="natural" cols="50" rows="25"></textarea>
       <br>
       <button (click)="compress()">Compress Natural</button>
     </div>
@@ -23,7 +23,7 @@
       <label>Compressed Text <span *ngIf="compressed">({{compressed.length}} chars)</span></label>
 
       <br>
-      <textarea name="compressed" [(ngModel)]="compressed" cols="50" rows="10"></textarea>
+      <textarea name="compressed" [(ngModel)]="compressed" cols="50" rows="25"></textarea>
       <br>
       <button (click)="decompress()">Naturalize Compressed</button>
     </div>

@@ -57,9 +57,10 @@ export class AppComponent {
 
   compressText = () => {
     let matchString = '';
-    let bookmark = 14;
+    // also sets the max match length
+    let bookmark = 36;
     let text = this.natural;
-    for (let matchLength = 35; matchLength > 8; matchLength--)
+    for (let matchLength = bookmark; matchLength > 7; matchLength--)
       for (let increment = 0; increment < text.length - 1; increment++) {
         if (increment > text.length - matchLength) {
           // Avoid checking the last few characters
@@ -74,7 +75,7 @@ export class AppComponent {
         } else {
           // Match found at bookmark index.
           // console.log(`FOUND "${matchString}" at index ${bookmark}`);
-          const pointer = `<${increment},${matchLength}>`;
+          const pointer = `<${increment.toString(36)},${matchLength.toString(36)}>`;
           // console.log('pointer: ' + pointer);
           const regExp = new RegExp(matchString, 'g');
           const head = text.slice(0, bookmark);
